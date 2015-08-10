@@ -166,13 +166,9 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                             <div class="table-responsive" >
                                <?php
 
-$con = mysql_connect("localhost","root","root");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
 
-mysql_select_db("bbm", $con);
+
+
 
 $result = mysql_query("SELECT * FROM ahli ");
                             
@@ -223,7 +219,7 @@ echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
                                         }
                                echo"</table>";
                              
-                                        mysql_close($con);
+                                        mysql_close();
 ?>
                             </div>
                             

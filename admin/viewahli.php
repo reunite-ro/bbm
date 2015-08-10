@@ -162,13 +162,7 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
 <?php
 //including the database connection file
 
-$con = mysql_connect("localhost","root","root");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
 
-mysql_select_db("bbm", $con);
 
 //getting id of the data from url
 $noahli= $_GET['noahli'];
@@ -277,7 +271,7 @@ while($row = mysql_fetch_array($result))
     
   
 }
-                                      mysql_close($con); ?>      
+                                      mysql_close(); ?>      
                                         
                                    
                                          
