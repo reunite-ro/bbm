@@ -7,7 +7,7 @@ include('login.php'); // Includes Login Script
     	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Pegawai Login Form</title>
+		<title>Admin Login Form</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -23,7 +23,7 @@ include('login.php'); // Includes Login Script
   <div class="modal-content">
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h1 class="text-center">Pegawai Login</h1>
+          <h1 class="text-center">Admin Login</h1>
       </div>
       <div class="modal-body">
           <form class="form col-md-12 center-block" action="" method="post">
