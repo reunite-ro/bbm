@@ -67,7 +67,25 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                         
                         
                         </ul>
-                      </li>  
+                      </li> 
+               <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i>Pembaharuan Yuran<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                             <li>
+                                <a href="senarai-yuran.php">Senarai Yuran</a>
+                            </li>
+                            <li>
+                                <a href="tertunggak-muda-remaja.php">Tertunggak Ahli Muda/Remaja</a>
+                            </li>
+                            
+                            <li>
+                                <a href="tertunggak-ipt-dewasa.php">Tertunggak Ahli IPT/Dewasa</a>
+                            </li>
+                                                        <li>
+                                <a href="blank.html">Yuran Seumur Hidup</a>
+                            </li>
+                    </ul>
+                      </li>
                        <li>
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Kegiatan Ahli<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -77,9 +95,7 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                              <li>
                                 <a href="edit-kegiatan.php">Edit Kegiatan</a>
                             </li>
-                            <li>
-                                <a href="kegiatan-terakhir.php">Kegiatan Terakhir</a>
-                            </li>
+                           
                            
                         
                         
@@ -137,13 +153,7 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                 </span>
                 <div class="text-box" >
                     <?php
-$con = mysql_connect("localhost","root","root");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
 
-mysql_select_db("bbm", $con);
 
 $result = mysql_query("SELECT * FROM ahli ") or die(mysql_error());
    $num_rows = mysql_num_rows($result);
@@ -161,20 +171,14 @@ echo "<p class='main-text'>" . $num_rows . "</p>";
                 </span>
                 <div class="text-box" >
 <?php
-$con = mysql_connect("localhost","root","root");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
 
-mysql_select_db("bbm", $con);
 
-$result2 = mysql_query("SELECT * FROM ahli WHERE lulustolak='PENDING'") or die(mysql_error());
+$result2 = mysql_query("SELECT * FROM ahli WHERE lulusbendahari='PENDING' && lulustolak='lulus'") or die(mysql_error());
    $num_rows = mysql_num_rows($result2);
 echo "<p class='main-text'>" . $num_rows . "</p>";
 ?>
                    
-                    <p class="text-muted"><a href="ahli-pending.php">Pending</a></p>
+                    <p class="text-muted"><a href="kelulusan-bendahari.php">Pending</a></p>
                 </div>
              </div>
 		     </div>
@@ -185,20 +189,14 @@ echo "<p class='main-text'>" . $num_rows . "</p>";
                 </span>
                 <div class="text-box" >
 <?php
-$con = mysql_connect("localhost","root","root");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
 
-mysql_select_db("bbm", $con);
 
-$result2 = mysql_query("SELECT * FROM ahli WHERE lulusbendahari='LULUS'") or die(mysql_error());
+$result2 = mysql_query("SELECT * FROM ahli WHERE expire<=CURDATE()") or die(mysql_error());
    $num_rows = mysql_num_rows($result2);
 echo "<p class='main-text'>" . $num_rows . "</p>";
 ?>
                    
-                    <p class="text-muted"><a href="ahli-lulus.php">Lulus</a></p>
+                    <p class="text-muted"><a href="senarai-yuran.php">Expire</a></p>
                 </div>
              </div>
 		     </div>
@@ -209,13 +207,9 @@ echo "<p class='main-text'>" . $num_rows . "</p>";
                 </span>
                 <div class="text-box" >
 <?php
-$con = mysql_connect("localhost","root","root");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
 
-mysql_select_db("bbm", $con);
+
+
 
 $result2 = mysql_query("SELECT * FROM pegawai") or die(mysql_error());
    $num_rows = mysql_num_rows($result2);
@@ -226,29 +220,7 @@ echo "<p class='main-text'>" . $num_rows . "</p>";
                 </div>
              </div>
 		     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon">
-                    <i class="fa fa-list"></i>
-                </span>
-                <div class="text-box" >
-                   <?php
-$con = mysql_connect("localhost","root","root");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-
-mysql_select_db("bbm", $con);
-
-$result3 = mysql_query("SELECT * FROM kegiatan") or die(mysql_error());
-   $num_rows = mysql_num_rows($result3);
-echo "<p class='main-text'>" . $num_rows . "</p>";
-?>
-                    <p class="text-muted"><a href="senarai-kegiatan.php">Kegiatan</a></p>
-                </div>
-             </div>
-		     </div>
+                    
     
 			</div>
                  <!-- /. ROW  -->

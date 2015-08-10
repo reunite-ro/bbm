@@ -22,7 +22,7 @@ include('session.php');
 </head>
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -30,12 +30,12 @@ include('session.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Pegawai</a> 
+                <a class="navbar-brand" href="dashboard.php">Pegawai</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -46,8 +46,8 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
 					</li>
 				
 					
-                   <li>
-                        <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    <li>
+                        <a  href="dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
 						
                     
@@ -57,14 +57,56 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Ahli Bridged Bakti Malaysia<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="form.html">Tambah Ahli</a>
+                                <a href="senarai-ahli.php">Senarai Ahli</a>
                             </li>
                             <li>
-                                <a href="table.html">Senarai Ahli</a>
+                                <a href="form-ahli.php">Tambah Ahli</a>
                             </li>
-                              <li>
-                                <a href="#">Kegiatan Ahli</a>
+                           <li>
+                                <a href="edit-ahli.php">Edit Ahli</a>
                             </li>
+                            <li>
+                                <a href="approve-ahli.php">Approve Ahli</a>
+                            </li>
+                        
+                        
+                        
+                        </ul>
+                      </li>  
+                      					                   
+                    <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i> Pembaharuan Yuran<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="senarai-yuran.php">Senarai Yuran Ahli</a>
+                            </li>
+                            <li>
+                                <a href="tertunggak-muda-remaja.php">Tertunggak Muda/Remaja</a>
+                            </li>
+                           <li>
+                                <a href="tertunggak-ipt-dewasa.php">Tertunggak IPT/Dewasa</a>
+                            </li>
+                            <li>
+                                <a href="blank.html">Yuran Seumur Hidup</a>
+                            </li>
+                        
+                        
+                        
+                        </ul>
+                      </li>  
+                       <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i> Kegiatan Ahli<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="senarai-kegiatan.php">Senarai Kegiatan</a>
+                            </li>
+                            <li>
+                                <a href="edit-kegiatan.php">Edit Kegiatan</a>
+                            </li>
+                         
+                           
+                        
+                        
                         
                         </ul>
                       </li>  
@@ -72,20 +114,15 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Guru Pegawai Penasihat<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="form.html">Tambah Pegawai</a>
+                                <a href="info-pegawai.php">Info Pegawai</a>
                             </li>
-                            <li>
-                                <a href="table.html">Senarai Pegawai</a>
-                            </li>
-                              <li>
-                                <a href="#">Approval Pegawai</a>
+                           <li>
+                                <a href="edit-info.php">Edit Info</a>
                             </li>
                         
                         </ul>
                       </li>  
-       <!--           <li  >
-                        <a   href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	-->
+    
                 </ul>
                
             </div>
@@ -96,11 +133,10 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Senarai Kegiatan</h2>   
-                        <h5>Welcome <?php echo $user_check; ?> , Love to see you back. </h5>
-                       
+                     <h2>Pegawai Dashboard</h2>   
+                        <h5>Welcome <?php echo $user_check; ?>, Love to see you back. </h5>
                     </div>
-                </div>
+                </div>              
                  <!-- /. ROW  -->
                  <hr />
                
@@ -110,7 +146,14 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                     <div class="panel panel-default">
                         <div class="panel-heading">
                              Senarai Kegiatan
-                        </div>
+                        </div>  <div class="col-lg-9"></div><div class="col-lg-3">
+  <form action="search-editkegiatan.php" method="post">    <div class="input-group">
+      <input type="text" name="query" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div><!-- /input-group --></form>
+  </div><!-- /.col-lg-6 -->
                         <div class="panel-body">
                             <div class="table-responsive">
                                <?php
@@ -122,7 +165,7 @@ $result = mysql_query("SELECT * FROM kegiatan WHERE pegawaiid='$login_session'")
                                 echo"<table class='table table-striped table-bordered table-hover'>
                                     <thead>
                                         <tr>
-                                        
+                                        <th>Edit</th>
                                             <th>No Ahli</th>
                                              <th>Jenis Kegiatan</th>
                                               <th>Tarikh</th>
@@ -138,6 +181,7 @@ $result = mysql_query("SELECT * FROM kegiatan WHERE pegawaiid='$login_session'")
   {
                                             echo "<tbody>";
                                         echo "<tr>";
+                                            echo "<td><a href=\"vieweditkegiatan.php?activityid=$row[activityid]\">" . $row['activityid'] . "</td>";
  echo "<td><a href=\"viewahli.php?noahli=$row[noahli]\">" . $row['noahli'] . "</td>";
   echo "<td>" . $row['type'] . "</td>";
   echo "<td>" . $row['date'] . "</td>";

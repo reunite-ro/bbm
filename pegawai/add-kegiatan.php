@@ -11,13 +11,13 @@ $sql="INSERT INTO kegiatan (activityid ,pegawaiid, noahli, date, time, type, akt
 VALUES
 ('','$login_session','$_POST[noahli]','$_POST[date]','$_POST[time]','$_POST[type]','$_POST[aktiviti]','$_POST[tempat]',CURDATE())";
 
-if (!mysql_query($sql,$con))
+if (!mysql_query($sql))
   {
   die('Error: ' . mysql_error());
   }
  
    
-mysql_close($con);
+mysql_close();
 
 header("Location:senarai-ahli.php");
 ?>

@@ -22,7 +22,7 @@ include('session.php');
 </head>
 <body>
     <div id="wrapper">
-   <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -30,7 +30,7 @@ include('session.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php">Admin</a> 
+                <a class="navbar-brand" href="dashboard.php">Pegawai</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -59,45 +59,51 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                             <li>
                                 <a href="senarai-ahli.php">Senarai Ahli</a>
                             </li>
+                            <li>
+                                <a href="form-ahli.php">Tambah Ahli</a>
+                            </li>
                            <li>
                                 <a href="edit-ahli.php">Edit Ahli</a>
                             </li>
                             <li>
-                                <a href="kelulusan-bendahari.php">Kelulusan Bendahari Negeri</a>
+                                <a href="approve-ahli.php">Approve Ahli</a>
                             </li>
                         
                         
                         
                         </ul>
-                      </li> 
-               <li>
-                        <a href="#"><i class="fa fa-edit fa-3x"></i>Pembaharuan Yuran<span class="fa arrow"></span></a>
+                      </li>  
+                      					                   
+                    <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i> Pembaharuan Yuran<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                             <li>
-                                <a href="senarai-yuran.php">Senarai Yuran</a>
+                            <li>
+                                <a href="senarai-yuran.php">Senarai Yuran Ahli</a>
                             </li>
                             <li>
-                                <a href="tertunggak-muda-remaja.php">Tertunggak Ahli Muda/Remaja</a>
+                                <a href="tertunggak-muda-remaja.php">Tertunggak Muda/Remaja</a>
                             </li>
-                            
+                           <li>
+                                <a href="tertunggak-ipt-dewasa.php">Tertunggak IPT/Dewasa</a>
+                            </li>
                             <li>
-                                <a href="tertunggak-ipt-dewasa.php">Tertunggak Ahli IPT/Dewasa</a>
-                            </li>
-                                                        <li>
                                 <a href="blank.html">Yuran Seumur Hidup</a>
                             </li>
-                    </ul>
-                      </li>
+                        
+                        
+                        
+                        </ul>
+                      </li>  
                        <li>
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Kegiatan Ahli<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="senarai-kegiatan.php">Senarai Kegiatan</a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="edit-kegiatan.php">Edit Kegiatan</a>
                             </li>
-                           
+                         
                            
                         
                         
@@ -108,28 +114,14 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Guru Pegawai Penasihat<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="senarai-pegawai.php">Senarai Pegawai</a>
-                            </li>
-                           <li>
-                                <a href="form-pegawai.php">Tambah Pegawai</a>
-                            </li>
-                         <li>
-                                <a href="edit-pegawai.php">Edit Pegawai</a>
-                            </li>
-                        </ul>
-                      </li>  
-                         <li>
-                        <a href="#"><i class="fa fa-edit fa-3x"></i> Admin<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="info-admin.php">Info Admin</a>
+                                <a href="info-pegawai.php">Info Pegawai</a>
                             </li>
                            <li>
                                 <a href="edit-info.php">Edit Info</a>
                             </li>
-                       
+                        
                         </ul>
-                      </li> 
+                      </li>  
     
                 </ul>
                
@@ -141,7 +133,7 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Dashboard</h2>   
+                     <h2>Pegawai Dashboard</h2>   
                         <h5>Welcome <?php echo $user_check; ?>, Love to see you back. </h5>
                     </div>
                 </div>              
@@ -153,7 +145,7 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Senarai Ahli
+                             Senarai Tertunggak Ahli Muda/Remaja (Renew RM2 Setahun)
                         
                         </div>
             
@@ -162,28 +154,18 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                                <?php
 
 
-
-
-
-$result = mysql_query("SELECT * FROM ahli ");
+$result = mysql_query("SELECT * FROM ahli WHERE expire <=CURDATE() && pegawaiid='$login_session' && jenisdaftar='muda'");
                             
                             echo"<table class='table table-striped table-bordered table-hover'>
                                     <thead>
                                         <tr>
-                                        <th>Edit Ahli</th>
                                             <th>No Ahli</th>
                                              <th>Nama</th>
                                               <th>IC</th>
                                                <th>Facebook</th>
-                                            <th>Tarikh Terima</th>
-                                             <th>Lulus/Tolak</th>
-                                              <th>Tarikh Setuju</th>
-                                               <th>Sebab</th>
                                                   <th>Nama Unit</th>
-                                              <th>Tarikh Lulus/Tolak</th>
-                                            <th>Kegiatan Ahli</th>
-                                            <th>Kelulusan Bendahari</th>
-                                     
+                                                 <th>Tarikh Tamat</th>
+                                      <th>Renew Tahunan</th>
                                          
                                              
                                         </tr>
@@ -193,22 +175,16 @@ $result = mysql_query("SELECT * FROM ahli ");
   {
                                             echo "<tbody>";
                                         echo "<tr>";
-  echo "<td><a href=\"vieweditahli.php?noahli=$row[noahli]\">Edit</a>";                                          
   echo "<td><a href=\"viewahli.php?noahli=$row[noahli]\">" . $row['noahli'] . "</td>";
   echo "<td>" . $row['nama'] . "</td>";
   echo "<td>" . $row['ic'] . "</td>";
                                            
 echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
-  echo "<td>" . $row['tarikhterima'] . "</td>";
-                                            echo "<td>" . $row['lulustolak'] . "</td>";
-  echo "<td>" . $row['tarikhsetuju'] . "</td>";
-  echo "<td>" . $row['sebab'] . "</td>";
+
   echo "<td>" . $row['namaunit'] . "</td>";
-  echo "<td>" . $row['tarikhlulustolak'] . "</td>";
- echo "<td><a href=\"kegiatanahli.php?noahli=$row[noahli]\">View";
-  echo "<td>" . $row['lulusbendahari'] . "</td>";
+  echo "<td>" . $row['expire'] . "</td>";
   
-  
+  echo "<td><a href=\"renew.php?noahli=$row[noahli]\">Renew</a>";
 
                                             echo "</tr>";
 

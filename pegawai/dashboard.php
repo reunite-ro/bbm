@@ -61,10 +61,31 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                                 <a href="form-ahli.php">Tambah Ahli</a>
                             </li>
                            <li>
-                                <a href="form-edit.php">Edit Ahli</a>
+                                <a href="edit-ahli.php">Edit Ahli</a>
                             </li>
                             <li>
                                 <a href="approve-ahli.php">Approve Ahli</a>
+                            </li>
+                        
+                        
+                        
+                        </ul>
+                      </li>  
+                      					                   
+                    <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i> Pembaharuan Yuran<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="senarai-yuran.php">Senarai Yuran Ahli</a>
+                            </li>
+                            <li>
+                                <a href="tertunggak-muda-remaja.php">Tertunggak Muda/Remaja</a>
+                            </li>
+                           <li>
+                                <a href="tertunggak-ipt-dewasa.php">Tertunggak IPT/Dewasa</a>
+                            </li>
+                            <li>
+                                <a href="blank.html">Yuran Seumur Hidup</a>
                             </li>
                         
                         
@@ -80,9 +101,7 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                             <li>
                                 <a href="edit-kegiatan.php">Edit Kegiatan</a>
                             </li>
-                            <li>
-                                <a href="kegiatan-terakhir.php">Kegiatan Terakhir</a>
-                            </li>
+                         
                            
                         
                         
@@ -151,7 +170,7 @@ $result2 = mysql_query("SELECT * FROM ahli WHERE lulustolak='PENDING' && pegawai
 echo "<p class='main-text'>" . $num_rows . "</p>";
 ?>
                    
-                    <p class="text-muted"><a href="ahli-pending.php">Pending</a></p>
+                    <p class="text-muted"><a href="approve-ahli.php">Pending</a></p>
                 </div>
              </div></div>
                                  <div class="col-md-3 col-sm-6 col-xs-6">           
@@ -163,12 +182,12 @@ echo "<p class='main-text'>" . $num_rows . "</p>";
 <?php
 
 
-$result2 = mysql_query("SELECT * FROM ahli WHERE lulusbendahari='LULUS' && pegawaiid='$login_session'") or die(mysql_error());
+$result2 = mysql_query("SELECT * FROM ahli WHERE expire<=CURDATE() && pegawaiid='$login_session'") or die(mysql_error());
    $num_rows = mysql_num_rows($result2);
 echo "<p class='main-text'>" . $num_rows . "</p>";
 ?>
                    
-                    <p class="text-muted"><a href="ahli-lulus.php">Lulus</a></p>
+                    <p class="text-muted"><a href="senarai-yuran.php">Expire</a></p>
                 </div>
              </div>
 		     </div>

@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+include('session.php');
+?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -15,7 +17,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+          <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -23,12 +25,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin</a> 
+                <a class="navbar-brand" href="dashboard.php">Admin</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -40,7 +42,7 @@ font-size: 16px;"> <a href="#" class="btn btn-danger square-btn-adjust">Logout</
 				
 					
                     <li>
-                        <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a  href="dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
 						
                     
@@ -50,49 +52,80 @@ font-size: 16px;"> <a href="#" class="btn btn-danger square-btn-adjust">Logout</
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Ahli Bridged Bakti Malaysia<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="form.html">Tambah Ahli</a>
-                            </li>
-                            <li>
-                                <a href="table.html">Senarai Ahli</a>
+                                <a href="senarai-ahli.php">Senarai Ahli</a>
                             </li>
                            <li>
-                                <a href="#">Kegiatan Ahli<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Tambah Kegiatan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Senarai Kegiatan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Kegiatan Terakhir</a>
-                                    </li>
-
-                                </ul>
-                               
+                                <a href="edit-ahli.php">Edit Ahli</a>
                             </li>
+                            <li>
+                                <a href="kelulusan-bendahari.php">Kelulusan Bendahari Negeri</a>
+                            </li>
+                        
+                        
+                        
+                        </ul>
+                      </li> 
+               <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i>Pembaharuan Yuran<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                             <li>
+                                <a href="senarai-yuran.php">Senarai Yuran</a>
+                            </li>
+                            <li>
+                                <a href="tertunggak-muda-remaja.php">Tertunggak Ahli Muda/Remaja</a>
+                            </li>
+                            
+                            <li>
+                                <a href="tertunggak-ipt-dewasa.php">Tertunggak Ahli IPT/Dewasa</a>
+                            </li>
+                                                        <li>
+                                <a href="blank.html">Yuran Seumur Hidup</a>
+                            </li>
+                    </ul>
+                      </li>
+                       <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i> Kegiatan Ahli<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="senarai-kegiatan.php">Senarai Kegiatan</a>
+                            </li>
+                             <li>
+                                <a href="edit-kegiatan.php">Edit Kegiatan</a>
+                            </li>
+                           
+                           
+                        
+                        
                         
                         </ul>
                       </li>  
-                         
                         <li>
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Guru Pegawai Penasihat<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="form.html">Tambah Pegawai</a>
+                                <a href="senarai-pegawai.php">Senarai Pegawai</a>
                             </li>
-                            <li>
-                                <a href="table.html">Senarai Pegawai</a>
+                           <li>
+                                <a href="form-pegawai.php">Tambah Pegawai</a>
                             </li>
-                              <li>
-                                <a href="#">Approval Pegawai</a>
+                         <li>
+                                <a href="edit-pegawai.php">Edit Pegawai</a>
                             </li>
-                        
                         </ul>
                       </li>  
-       <!--           <li  >
-                        <a   href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	-->
+                         <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i> Admin<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="info-admin.php">Info Admin</a>
+                            </li>
+                           <li>
+                                <a href="edit-info.php">Edit Info</a>
+                            </li>
+                       
+                        </ul>
+                      </li> 
+    
                 </ul>
                
             </div>
@@ -103,11 +136,10 @@ font-size: 16px;"> <a href="#" class="btn btn-danger square-btn-adjust">Logout</
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Maklumat Pegawai Penasihat</h2>   
-                        <h5>Welcome Admin , Love to see you back. </h5>
-                       
+                     <h2>Admin Dashboard</h2>   
+                        <h5>Welcome <?php echo $user_check; ?>, Love to see you back. </h5>
                     </div>
-                </div>
+                </div>              
                  <!-- /. ROW  -->
                  <hr />
                <div class="row">

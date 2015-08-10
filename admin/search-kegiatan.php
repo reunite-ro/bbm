@@ -6,7 +6,7 @@ include('session.php');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bridged Bakti Malaysia :Admin</title>
+  <title>Bridged Bakti Malaysia :Pegawai</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -22,7 +22,7 @@ include('session.php');
 </head>
 <body>
     <div id="wrapper">
-   <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+          <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -153,38 +153,33 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Senarai Ahli
-                        
-                        </div>
-            
-                        <div class="panel-body" >
-                            <div class="table-responsive" >
+                             Senarai Kegiatan
+                        </div>  <div class="col-lg-9"></div><div class="col-lg-3">
+  <form action="search-kegiatan.php" method="post">    <div class="input-group">
+      <input type="text" name="query" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div><!-- /input-group --></form>
+  </div><!-- /.col-lg-6 -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
                                <?php
+$query = $_POST['query']; 
 
 
+$result = mysql_query("SELECT * FROM kegiatan WHERE pegawaiid='$login_session' && (`noahli` LIKE '%".$query."%') OR (`type` LIKE '%".$query."%') OR (`date` LIKE '%".$query."%') OR (`time` LIKE '%".$query."%') OR (`aktiviti` LIKE '%".$query."%') OR (`tempat` LIKE '%".$query."%') OR (`tarikhmasuk` LIKE '%".$query."%')");
 
-
-
-$result = mysql_query("SELECT * FROM ahli ");
-                            
-                            echo"<table class='table table-striped table-bordered table-hover'>
+                                echo"<table class='table table-striped table-bordered table-hover' >
                                     <thead>
                                         <tr>
-                                        <th>Edit Ahli</th>
                                             <th>No Ahli</th>
-                                             <th>Nama</th>
-                                              <th>IC</th>
-                                               <th>Facebook</th>
-                                            <th>Tarikh Terima</th>
-                                             <th>Lulus/Tolak</th>
-                                              <th>Tarikh Setuju</th>
-                                               <th>Sebab</th>
-                                                  <th>Nama Unit</th>
-                                              <th>Tarikh Lulus/Tolak</th>
-                                            <th>Kegiatan Ahli</th>
-                                            <th>Kelulusan Bendahari</th>
-                                     
-                                         
+                                             <th>Jenis Kegiatan</th>
+                                              <th>Tarikh</th>
+                                            <th>Masa</th>
+                                            <th>Aktiviti</th>
+                                            <th>Tempat Aktiviti</th>
+                                            <th>Tarikh Masuk Data</th>
                                              
                                         </tr>
                                     </thead>";
@@ -193,30 +188,20 @@ $result = mysql_query("SELECT * FROM ahli ");
   {
                                             echo "<tbody>";
                                         echo "<tr>";
-  echo "<td><a href=\"vieweditahli.php?noahli=$row[noahli]\">Edit</a>";                                          
-  echo "<td><a href=\"viewahli.php?noahli=$row[noahli]\">" . $row['noahli'] . "</td>";
-  echo "<td>" . $row['nama'] . "</td>";
-  echo "<td>" . $row['ic'] . "</td>";
-                                           
-echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
-  echo "<td>" . $row['tarikhterima'] . "</td>";
-                                            echo "<td>" . $row['lulustolak'] . "</td>";
-  echo "<td>" . $row['tarikhsetuju'] . "</td>";
-  echo "<td>" . $row['sebab'] . "</td>";
-  echo "<td>" . $row['namaunit'] . "</td>";
-  echo "<td>" . $row['tarikhlulustolak'] . "</td>";
- echo "<td><a href=\"kegiatanahli.php?noahli=$row[noahli]\">View";
-  echo "<td>" . $row['lulusbendahari'] . "</td>";
-  
-  
+ echo "<td><a href=\"viewahli.php?noahli=$row[noahli]\">" . $row['noahli'] . "</td>";
+  echo "<td>" . $row['type'] . "</td>";
+  echo "<td>" . $row['date'] . "</td>";
+  echo "<td>" . $row['time'] . "</td>";
+  echo "<td>" . $row['aktiviti'] . "</td>";
+  echo "<td>" . $row['tempat'] . "</td>";
+echo "<td>" . $row['tarikhmasuk'] . "</td>";
 
                                             echo "</tr>";
 
                                     echo"</tbody>";
                                         }
                                echo"</table>";
-                             
-                                        mysql_close();
+                                       
 ?>
                             </div>
                             

@@ -22,7 +22,7 @@ include('session.php');
 </head>
 <body>
     <div id="wrapper">
-   <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+          <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -162,28 +162,18 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                                <?php
 
 
-
-
-
-$result = mysql_query("SELECT * FROM ahli ");
+$result = mysql_query("SELECT * FROM ahli WHERE expire <=CURDATE()  && jenisdaftar='muda'");
                             
                             echo"<table class='table table-striped table-bordered table-hover'>
                                     <thead>
                                         <tr>
-                                        <th>Edit Ahli</th>
                                             <th>No Ahli</th>
                                              <th>Nama</th>
                                               <th>IC</th>
                                                <th>Facebook</th>
-                                            <th>Tarikh Terima</th>
-                                             <th>Lulus/Tolak</th>
-                                              <th>Tarikh Setuju</th>
-                                               <th>Sebab</th>
                                                   <th>Nama Unit</th>
-                                              <th>Tarikh Lulus/Tolak</th>
-                                            <th>Kegiatan Ahli</th>
-                                            <th>Kelulusan Bendahari</th>
-                                     
+                                                 <th>Tarikh Tamat</th>
+                                      <th>Renew Tahunan</th>
                                          
                                              
                                         </tr>
@@ -193,22 +183,16 @@ $result = mysql_query("SELECT * FROM ahli ");
   {
                                             echo "<tbody>";
                                         echo "<tr>";
-  echo "<td><a href=\"vieweditahli.php?noahli=$row[noahli]\">Edit</a>";                                          
   echo "<td><a href=\"viewahli.php?noahli=$row[noahli]\">" . $row['noahli'] . "</td>";
   echo "<td>" . $row['nama'] . "</td>";
   echo "<td>" . $row['ic'] . "</td>";
                                            
 echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
-  echo "<td>" . $row['tarikhterima'] . "</td>";
-                                            echo "<td>" . $row['lulustolak'] . "</td>";
-  echo "<td>" . $row['tarikhsetuju'] . "</td>";
-  echo "<td>" . $row['sebab'] . "</td>";
+
   echo "<td>" . $row['namaunit'] . "</td>";
-  echo "<td>" . $row['tarikhlulustolak'] . "</td>";
- echo "<td><a href=\"kegiatanahli.php?noahli=$row[noahli]\">View";
-  echo "<td>" . $row['lulusbendahari'] . "</td>";
+  echo "<td>" . $row['expire'] . "</td>";
   
-  
+  echo "<td><a href=\"renew.php?noahli=$row[noahli]\">Renew</a>";
 
                                             echo "</tr>";
 

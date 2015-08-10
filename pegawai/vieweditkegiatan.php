@@ -1,28 +1,24 @@
 <?php
 include('session.php');
 ?>
-<!DOCTYPE html>
+                      <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bridged Bakti Malaysia :Admin</title>
+    <title>Bridged Bakti Malaysia :Admin</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- MORRIS CHART STYLES-->
-   
         <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-     <!-- TABLE STYLES-->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
-         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -30,7 +26,7 @@ include('session.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php">Admin</a> 
+                <a class="navbar-brand" href="dashboard.php">Pegawai</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -59,45 +55,51 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                             <li>
                                 <a href="senarai-ahli.php">Senarai Ahli</a>
                             </li>
+                            <li>
+                                <a href="form-ahli.php">Tambah Ahli</a>
+                            </li>
                            <li>
                                 <a href="edit-ahli.php">Edit Ahli</a>
                             </li>
                             <li>
-                                <a href="kelulusan-bendahari.php">Kelulusan Bendahari Negeri</a>
+                                <a href="approve-ahli.php">Approve Ahli</a>
                             </li>
                         
                         
                         
                         </ul>
-                      </li> 
-               <li>
-                        <a href="#"><i class="fa fa-edit fa-3x"></i>Pembaharuan Yuran<span class="fa arrow"></span></a>
+                      </li>  
+                      					                   
+                    <li>
+                        <a href="#"><i class="fa fa-edit fa-3x"></i> Pembaharuan Yuran<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                             <li>
-                                <a href="senarai-yuran.php">Senarai Yuran</a>
+                            <li>
+                                <a href="senarai-yuran.php">Senarai Yuran Ahli</a>
                             </li>
                             <li>
-                                <a href="tertunggak-muda-remaja.php">Tertunggak Ahli Muda/Remaja</a>
+                                <a href="tertunggak-muda-remaja.php">Tertunggak Muda/Remaja</a>
                             </li>
-                            
+                           <li>
+                                <a href="tertunggak-ipt-dewasa.php">Tertunggak IPT/Dewasa</a>
+                            </li>
                             <li>
-                                <a href="tertunggak-ipt-dewasa.php">Tertunggak Ahli IPT/Dewasa</a>
-                            </li>
-                                                        <li>
                                 <a href="blank.html">Yuran Seumur Hidup</a>
                             </li>
-                    </ul>
-                      </li>
+                        
+                        
+                        
+                        </ul>
+                      </li>  
                        <li>
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Kegiatan Ahli<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="senarai-kegiatan.php">Senarai Kegiatan</a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="edit-kegiatan.php">Edit Kegiatan</a>
                             </li>
-                           
+                         
                            
                         
                         
@@ -108,28 +110,14 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                         <a href="#"><i class="fa fa-edit fa-3x"></i> Guru Pegawai Penasihat<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="senarai-pegawai.php">Senarai Pegawai</a>
-                            </li>
-                           <li>
-                                <a href="form-pegawai.php">Tambah Pegawai</a>
-                            </li>
-                         <li>
-                                <a href="edit-pegawai.php">Edit Pegawai</a>
-                            </li>
-                        </ul>
-                      </li>  
-                         <li>
-                        <a href="#"><i class="fa fa-edit fa-3x"></i> Admin<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="info-admin.php">Info Admin</a>
+                                <a href="info-pegawai.php">Info Pegawai</a>
                             </li>
                            <li>
                                 <a href="edit-info.php">Edit Info</a>
                             </li>
-                       
+                        
                         </ul>
-                      </li> 
+                      </li>  
     
                 </ul>
                
@@ -141,85 +129,88 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Dashboard</h2>   
+                     <h2>Pegawai Dashboard</h2>   
                         <h5>Welcome <?php echo $user_check; ?>, Love to see you back. </h5>
                     </div>
                 </div>              
                  <!-- /. ROW  -->
                  <hr />
-               
-            <div class="row">
+               <div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
+                    <!-- Form Elements -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Senarai Pegawai
+                            Berikut merupakan maklumat ahli Bridged Bakti Malaysia
                         </div>
                         <div class="panel-body">
-                            <div class="table-responsive">
-                               <?php
+                            <div class="row">
+                                <div class="col-md-12">
+                                   <h3>Maklumat Kegiatan</h3> 
 
 
 
-$result = mysql_query("SELECT * FROM pegawai ");
 
-                                echo"<table class='table table-striped table-bordered table-hover'>
-                                    <thead>
-                                        <tr>
-                                            <th>Edit</th>
-                                            <th>Nama Pegawai</th>
-                                             <th>Username</th>
-                                            
-                                            <th>No Kad Pengenalan</th>
-                                            <th>Alamat</th>
-                                            <th>Poskod</th>
-                                            <th>Daerah</th>
-                                             <th>Negeri</th>
-                                              <th>Email</th>
-                                               <th>Facebook</th>
-                                        </tr>
-                                    </thead>";
-                                    
-                                        while($row = mysql_fetch_array($result))
+<form action="update-kegiatan.php" method="post">
+<?php
+//including the database connection file
+
+
+
+//getting id of the data from url
+$activityid= $_GET['activityid'];
+
+$result = mysql_query("SELECT * FROM kegiatan WHERE activityid=$_GET[activityid]");
+  
+
+
+while($row = mysql_fetch_array($result))
   {
-                                            echo "<tbody>";
-                                        echo "<tr>";
-  echo "<td><a href=\"vieweditpegawai.php?pegawaiid=$row[pegawaiid]\">" . $row['pegawaiid'] . "</td>";                                          
-  echo "<td>" . $row['nama'] . "</td>";
-  echo "<td>" . $row['username'] . "</td>";
- 
-  echo "<td>" . $row['ic'] . "</td>";
-  echo "<td>" . $row['alamat'] . "</td>";
-  echo "<td>" . $row['poskod'] . "</td>";
-echo "<td>" . $row['daerah'] . "</td>";
-  echo "<td>" . $row['negeri'] . "</td>";
-  echo "<td>" . $row['email'] . "</td>";
-echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
-                                            echo "</tr>";
+   echo "<input class='form-control'  type='hidden' name='activityid' value='" . $row['activityid'] . "'>";
+    echo"<label>No Ahli</label><br>";
+    echo "<input class='form-control'   disabled name='noahli' value='" . $row['noahli'] . "'>";
+   echo"<label>Jenis Kegiatan</label><br>";
+    echo "<input class='form-control' name='type' value='" . $row['type'] . "'>";
+    echo"<label>Tarikh</label>";
+    echo "<input class='form-control'  name='date' type='date' value='" . $row['date'] . "'>";
+    echo"<label>Masa</label><br>";
+    echo "<input class='form-control' name='time' type='time' value='" . $row['time'] . "'>";
+    echo"<label>Aktiviti</label>";
+    echo "<input class='form-control'  name='aktiviti' value='" . $row['aktiviti'] . "'>";
+     echo"<label>Tempat</label>";
+    echo "<input class='form-control'  name='tempat' value='" . $row['tempat'] . "'>";
+  
 
-                                    echo"</tbody>";
-                                        }
-                               echo"</table>";
-                                        mysql_close();
-?>
+     echo"<br><button type='submit' class='btn btn-default'>Submit</button>";
+    
+  
+}
+                                      mysql_close(); ?>      
+                                        
+                                   
+                                         
+                                    </form>
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
-                    <!--End Advanced Tables -->
+                     <!-- End Form Elements -->
                 </div>
             </div>
-            
-               
-                <d
-            </div>
                 <!-- /. ROW  -->
-        </div>
-               
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Akan Datang</h3>
+                         <p>
+                        Ruangan ini adalah untuk kegunaan akan datang Bridged Bakti Malaysia.
+                        </p>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
     </div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
+        </div>
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
@@ -228,15 +219,7 @@ echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
-         <!-- CUSTOM SCRIPTS -->
+      <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
     
    
