@@ -168,6 +168,8 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
 
 
 
+
+
 $result = mysql_query("SELECT * FROM ahli ");
                             
                             echo"<table class='table table-striped table-bordered table-hover'>
