@@ -1,8 +1,8 @@
 <?php
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysql_connect("127.0.0.1", "gdhuswmvve", "y7DjKnkPqd");
+$connection = mysql_connect("localhost", "root", "root");
 // Selecting Database
-$db = mysql_select_db("gdhuswmvve", $connection);
+$db = mysql_select_db("bbm", $connection);
 session_start();// Starting Session
 // Storing Session
 $user_check=$_SESSION['login_user'];
