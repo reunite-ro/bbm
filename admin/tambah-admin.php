@@ -1,28 +1,23 @@
 <?php
 include('session.php');
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bridged Bakti Malaysia :Admin</title>
+    <title>Bridget Bakti Malaysia :Admin</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- MORRIS CHART STYLES-->
-   
         <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-     <!-- TABLE STYLES-->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
-         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+          <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -147,96 +142,81 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                 </div>              
                  <!-- /. ROW  -->
                  <hr />
-               
-            <div class="row">
+               <div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
+                    <!-- Form Elements -->
                     <div class="panel panel-default">
-                                                <div class="panel-heading">
-                             Senarai Ahli
-                        </div>  <div class="col-lg-9"></div><div class="col-lg-3">
-  <form action="search-ahli.php" method="post">    <div class="input-group">
-      <input type="text" name="query" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="submit">Go!</button>
-        </span>
-      </div><!-- /input-group --></form>
-  </div><!-- /.col-lg-6 -->
+                        <div class="panel-heading">
+                            Isikan maklumat admin dibawah
+                        </div>
                         <div class="panel-body">
-                            <div class="table-responsive" >
-                               <?php
-
-
-
-$result = mysql_query("SELECT * FROM ahli ");
-                            
-                            echo"<table class='table table-striped table-bordered table-hover'>
-                                    <thead>
-                                        <tr>
-                                            <th>No Ahli</th>
-                                             <th>Nama</th>
-                                              <th>IC</th>
-                                               <th>Facebook</th>
-                                            <th>Tarikh Terima</th>
-                                             <th>Lulus/Tolak</th>
-                                              <th>Tarikh Setuju</th>
-                                          
-                                                  <th>Nama Unit</th>
-                                            
-                                            <th>Kegiatan Ahli</th>
-                                            <th>Kelulusan Bendahari</th>
-                                     
-                                         
-                                             
-                                        </tr>
-                                    </thead>";
+                            <div class="row">
+                                <div class="col-md-6">
+                                   <h3>Maklumat Admin</h3> 
+                                    <form role="form" action="add-admin.php" method="post">
                                     
-                                        while($row = mysql_fetch_array($result))
-  {
-                                            echo "<tbody>";
-                                        echo "<tr>";
-  echo "<td><a href=\"viewahli.php?noahli=$row[noahli]\">" . $row['noahli'] . "</td>";
-  echo "<td>" . $row['nama'] . "</td>";
-  echo "<td>" . $row['ic'] . "</td>";
-                                           
-echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
-  echo "<td>" . $row['tarikhterima'] . "</td>";
-                                            echo "<td>" . $row['lulustolak'] . "</td>";
-  echo "<td>" . $row['tarikhsetuju'] . "</td>";
- 
-  echo "<td>" . $row['namaunit'] . "</td>";
-
- echo "<td><a href=\"kegiatanahli.php?noahli=$row[noahli]\">View";
-  echo "<td>" . $row['lulusbendahari'] . "</td>";
-  
- 
-
-                                            echo "</tr>";
-
-                                    echo"</tbody>";
-                                        }
-                               echo"</table>";
-                             
-                                        mysql_close();
-?>
+                                            <label>Nama</label>
+                                            <input class="form-control" name="nama"/>
+                                      
+                                  
+                                            <label>No Kad Pengenalan</label>
+                                            <input class="form-control" name="ic"/>
+                                  
+                      
+                                       
+                                       
+                                            <label>Email</label>
+                                            <input class="form-control" name="email"/>
+                                        
+                                        
+                                            <label>Facebook</label>
+                                            <input class="form-control" name="facebook"/>
+                                       
+                                        
+                                        
+                                            
+                                       
+    </div>
+                                
+                                <div class="col-md-6">
+                                    <h3>Login Info</h3>
+                                       
+                                            <label>Username</label>
+                                            <input class="form-control" name="username"/>
+                                       
+                                            
+                                            <label>Password</label>
+                                            <input class="form-control" name="password" type=
+"password"/>
+                                       
+                                         
+                                          <br>
+                                        <button type="submit" class="btn btn-default">Submit</button>
+                                        <button type="reset" class="btn btn-primary">Reset</button>
+                                    </form>
+                       
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
-                    <!--End Advanced Tables -->
+                     <!-- End Form Elements -->
                 </div>
             </div>
-            
-               
-                <d
-            </div>
                 <!-- /. ROW  -->
-        </div>
-               
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Akan Datang</h3>
+                         <p>
+                        Ruangan ini adalah untuk kegunaan akan datang Bridged Bakti Malaysia.
+                        </p>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
     </div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
+        </div>
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
@@ -245,15 +225,7 @@ echo "<td><a href=".$row['facebook'] ." target='_blank'>Link</a>";
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
-         <!-- CUSTOM SCRIPTS -->
+      <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
     
    
