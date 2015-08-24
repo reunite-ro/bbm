@@ -221,7 +221,11 @@ echo "<p class='main-text'>" . $num_rows . "</p>";
              </div>
 		     </div>
                     
-    
+
+		     </div>
+<div class="col-md-3 col-sm-6 col-xs-6">           
+
+    <p><a class="btn btn-primary btn-lg" href="tambah-admin.php" role="button">Tambah Admin</a></p> </div>
 			</div>
                  <!-- /. ROW  -->
                 <hr />                

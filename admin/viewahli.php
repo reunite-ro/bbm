@@ -163,7 +163,6 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
 //including the database connection file
 
 
-
 //getting id of the data from url
 $noahli= $_GET['noahli'];
 
